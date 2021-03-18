@@ -63,6 +63,12 @@ final class GildedRose
                 default:
                     $item->sell_in--;
                     $item->quality--;
+                    if ($item->sell_in <= 0) {
+                        $item->sell_in = 0;
+                    }
+                    if ($item->quality <= 0) {
+                        $item->quality = 0;
+                    }
                     break;
             }
 

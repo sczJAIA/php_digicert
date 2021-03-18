@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
+// require_once __DIR__ . '/../vendor/autoload.php';
+require '../src/Item.php';
+require '../src/GildedRose.php';
 use GildedRose\GildedRose;
 use GildedRose\Item;
 
-echo "OMGHAI!" . PHP_EOL;
 
 $items = array(
     new Item('+5 Dexterity Vest', 10, 20),
@@ -22,16 +22,16 @@ $items = array(
 
 $app = new GildedRose($items);
 
-$days = 2;
-if (count($argv) > 1) {
-    $days = (int) $argv[1];
-}
+$days = 3;
+// if (count($argv) > 1) {
+//     $days = (int) $argv[1];
+// }
 
 for ($i = 0; $i < $days; $i++) {
-    echo("-------- day $i --------" . PHP_EOL);
-    echo("name, sellIn, quality" . PHP_EOL);
+    echo nl2br("-------- day $i --------\n" . PHP_EOL);
+    echo nl2br("name, sellIn, quality\n" . PHP_EOL);
     foreach ($items as $item) {
-        echo $item . PHP_EOL;
+        echo nl2br ($item . PHP_EOL."\n");
     }
     echo PHP_EOL;
     $app->updateQuality();
